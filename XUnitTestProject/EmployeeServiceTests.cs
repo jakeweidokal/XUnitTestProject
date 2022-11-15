@@ -1,6 +1,6 @@
 namespace XUnitTestProject
 {
-    public class UnitTest1
+    public class EmployeeServiceTests
     {
         [Fact]
         public void Test1()
