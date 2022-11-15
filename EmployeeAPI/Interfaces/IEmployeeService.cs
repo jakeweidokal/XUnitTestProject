@@ -10,5 +10,6 @@ namespace EmployeeAPI.Interfaces
         List<Employee> Delete(int id);
         List<Employee> Update(Employee employee);
         bool ValidateEmail(string email);
+        int GetEmployeeCount();
     }
 }
