@@ -1,5 +1,6 @@
 using EmployeeAPI.Interfaces;
 using EmployeeAPI.Services;
+using System.Xml;
 
 namespace XUnitTestProject
 {
@@ -74,10 +75,15 @@ namespace XUnitTestProject
             Assert.False(true);
         }
 
-        [Fact]
-        public void ValidateEmail_InvalidFormat_ReturnsFalse()
+        [Theory]
+        [InlineData("abc@abc.com", true)]
+        [InlineData("9abc@abc.com", true)]
+        [InlineData("abcabc.com", false)]
+        [InlineData("abc@abccom", true)]
+        public void ValidateEmail_InvalidFormat_ReturnsFalse(string email, bool expected)
         {
-            Assert.False(true);
+            var results = _employeeService.ValidateEmail(email);
+            Assert.Equal(expected, results);
         }
 
         [Fact]
